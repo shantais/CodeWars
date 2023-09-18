@@ -1,5 +1,12 @@
 package kyu6;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * In this kata you have to write a simple Morse code decoder.
  * While the Morse code is now mostly superseded by voice and digital
@@ -40,7 +47,22 @@ package kyu6;
 
 public class MorseCodeDecoder {
 
+    private static void getFileGutsByLine(Path path) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
     public static String decode(String morseCode) {
+        List<String> morseLetters = new LinkedList<>(List.of(morseCode.split(" ")));
+        System.out.println(morseLetters);
+
         return "";
     }
 }
