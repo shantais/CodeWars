@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * In this kata you have to write a simple Morse code decoder.
@@ -46,36 +49,25 @@ import java.util.List;
  */
 
 public class MorseCodeDecoder {
-//    private static Path path = Paths.get("src", "main", "java", "kyu6", "MorseCode.txt");
-
-//    private static String getFileGutsByLine(Path path) {
-//        try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                System.out.println(line);
-//                return line;
-//            }
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//
-//    }
 
     public static String decode(String morseCode) {
-        List<String> morseLetters = new LinkedList<>(List.of(morseCode.split(" ")));
-        return morseLetters.toString();
+        List<String> morseMessageLetters = new LinkedList<>(List.of(morseCode.split(" ")));
+
+        return morseMessageLetters.toString();
     }
 
-    public static List<String> getListWithFullMorseCode(Path path) {
-        List<String> fullMorseCode = new LinkedList<>();
+    public static Map<String, String> getMapWithFullMorseCode() {
+        Path path = Paths.get("src", "main", "java", "kyu6", "MorseCode.txt");
+        Map<String, String> fullMorseCode = new LinkedHashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                fullMorseCode.add(line);
+                fullMorseCode.put(line.split("\\|")[1],line.split("\\|")[0]);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        System.out.println(fullMorseCode);
         return fullMorseCode;
     }
 }
