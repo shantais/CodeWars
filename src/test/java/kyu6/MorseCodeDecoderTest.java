@@ -17,9 +17,9 @@ public class MorseCodeDecoderTest {
     }
 
     @Test
-    public void GetLineFromMorseCodeTxt(){
+    public void GetListFromMorseCodeTxt(){
         Path path = Paths.get("src", "main", "java", "kyu6", "MorseCode.txt");
-        assertThat(MorseCodeDecoder.getLine(path), is("A|.-"));
+        assertThat(MorseCodeDecoder.getList(path), is("A|.-"));
     }
 
     @Test

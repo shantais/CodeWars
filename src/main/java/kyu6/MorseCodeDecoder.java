@@ -68,7 +68,7 @@ public class MorseCodeDecoder {
         return morseLetters.toString();
     }
 
-    public static String getLine(Path path) {
+    public static String getList(Path path) {
         try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
             return reader.readLine();
         } catch (IOException ex) {
