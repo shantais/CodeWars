@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * In this kata you have to write a simple Morse code decoder.
@@ -68,12 +66,16 @@ public class MorseCodeDecoder {
         return morseLetters.toString();
     }
 
-    public static String getList(Path path) {
+    public static List<String> getListWithFullMorseCode(Path path) {
+        List<String> fullMorseCode = new LinkedList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
-            return reader.readLine();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                fullMorseCode.add(line);
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
-            return "Błąd odczytu";
         }
+        return fullMorseCode;
     }
 }
