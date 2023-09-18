@@ -5,10 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * In this kata you have to write a simple Morse code decoder.
@@ -52,7 +49,12 @@ public class MorseCodeDecoder {
 
     public static String decode(String morseCode) {
         List<String> morseMessageLetters = new LinkedList<>(List.of(morseCode.split(" ")));
-
+        Map<String, String> morseCodeMap = new LinkedHashMap<>(getMapWithFullMorseCode());
+        for (String character: morseMessageLetters){
+            if (morseCodeMap.containsKey(character)){
+                return morseCodeMap.get(character);
+            }
+        }
         return morseMessageLetters.toString();
     }
 
@@ -61,13 +63,12 @@ public class MorseCodeDecoder {
         Map<String, String> fullMorseCode = new LinkedHashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null && !line.isEmpty()) {
                 fullMorseCode.put(line.split("\\|")[1],line.split("\\|")[0]);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        System.out.println(fullMorseCode);
         return fullMorseCode;
     }
 }
