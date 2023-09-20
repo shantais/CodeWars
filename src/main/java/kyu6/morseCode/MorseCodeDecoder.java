@@ -48,31 +48,7 @@ import java.util.*;
 public class MorseCodeDecoder {
 
     public static String decode(String morseCode) {
-        List<String> morseMessageLetters = new LinkedList<>(List.of(morseCode.replace("   ", "  ").split(" ")));
-        System.out.println(morseMessageLetters);
-        Map<String, String> morseCodeMap = new LinkedHashMap<>(getMapWithFullMorseCode());
-        System.out.println(morseCodeMap);
-        List<String> decodedMessage = new LinkedList<>();
-        for (String character: morseMessageLetters){
-            if (morseCodeMap.containsKey(character)){
-                System.out.println(morseCodeMap.get(character));
-            }
-        }
-        return decodedMessage.toString();
-    }
+        List<String> morseMessageLetters = new LinkedList<>(List.of(morseCode.replace("   ", " -.-.-.- ").split(" ")));
 
-    public static Map<String, String> getMapWithFullMorseCode() {
-        Path path = Paths.get("src", "main", "java", "kyu6", "MorseCode.txt");
-        Map<String, String> fullMorseCode = new LinkedHashMap<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
-            String line;
-            while ((line = reader.readLine()) != null && !line.isEmpty()) {
-                fullMorseCode.put(line.split("\\|")[1], line.split("\\|")[0]);
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        fullMorseCode.replace(" ", "-.-.-.-", " ");
-        return fullMorseCode;
     }
 }
