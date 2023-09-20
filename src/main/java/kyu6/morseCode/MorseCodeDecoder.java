@@ -1,10 +1,5 @@
 package kyu6.morseCode;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -48,7 +43,12 @@ import java.util.*;
 public class MorseCodeDecoder {
 
     public static String decode(String morseCode) {
-        List<String> morseMessageLetters = new LinkedList<>(List.of(morseCode.replace("   ", " -.-.-.- ").split(" ")));
-
+        List<String> morseMessageLetters = new LinkedList<>(List.of(morseCode
+                .replace("   ", " -.-.-.- ").split(" ")));
+        List<String> decodedMorseMessageLetters = new LinkedList<>();
+        for(String character: morseMessageLetters){
+            decodedMorseMessageLetters.add(MorseCode.get(character));
+        }
+        return String.join("", decodedMorseMessageLetters);
     }
 }
