@@ -16,6 +16,12 @@ package kyu6.multiplicationTable;
 
 public class Multiplication {
     public static int [][] multiplicationTable(int n){
-        return null;
+        int [][] multiplication = new int[n][n];
+        for (int i=0; i<n; i++){
+            for (int j=0; j<n; j++){
+                multiplication[i][j] = (i+1)*(j+1);
+            }
+        }
+        return multiplication;
     }
 }
