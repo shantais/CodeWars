@@ -1,4 +1,4 @@
-package kyu6;
+package kyu6.morseCode;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
