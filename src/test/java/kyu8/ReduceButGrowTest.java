@@ -1,10 +1,9 @@
 package kyu8;
-
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ReduceButGrowTest {
+
     @Test
     public void testSomething() {
         assertEquals(6, ReduceButGrow.grow(new int[]{1,2,3}));

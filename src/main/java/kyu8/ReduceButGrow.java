@@ -8,7 +8,10 @@ package kyu8;
 
 public class ReduceButGrow {
     public static int grow(int[] x){
-
-        return 0;
+        int multiply = 1;
+        for (int a: x){
+            multiply *= a;
+        }
+        return multiply;
     }
 }
