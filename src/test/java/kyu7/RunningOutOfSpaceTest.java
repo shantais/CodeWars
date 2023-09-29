@@ -32,4 +32,31 @@ class RunningOutOfSpaceTest {
         String[] expected = new String[]{"Trying!", "Trying!Adding2", "Trying!Adding2Diff3rent", "Trying!Adding2Diff3rentComb1nati0ns"};
         Assertions.assertArrayEquals(expected, RunningOutOfSpace.spacey(input));
     }
+
+    @Test
+    @Order(4)
+    @DisplayName("Strings with lower letters only")
+    void test4() {
+        String[] input = new String[]{"kevin", "has", "no", "space"};
+        String[] expected = new String[]{"kevin", "kevinhas", "kevinhasno", "kevinhasnospace"};
+        Assertions.assertArrayEquals(expected, RunningOutOfSpace.spacey2(input));
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("Strings with camel case")
+    void test5() {
+        String[] input = new String[]{"Camel", "Case", "Should", "Remain"};
+        String[] expected = new String[]{"Camel", "CamelCase", "CamelCaseShould", "CamelCaseShouldRemain"};
+        Assertions.assertArrayEquals(expected, RunningOutOfSpace.spacey2(input));
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("Strings with letters, digits,")
+    void test6() {
+        String[] input = new String[]{"Trying!", "Adding2", "Diff3rent", "Comb1nati0ns"};
+        String[] expected = new String[]{"Trying!", "Trying!Adding2", "Trying!Adding2Diff3rent", "Trying!Adding2Diff3rentComb1nati0ns"};
+        Assertions.assertArrayEquals(expected, RunningOutOfSpace.spacey2(input));
+    }
 }
