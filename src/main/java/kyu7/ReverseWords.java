@@ -13,6 +13,26 @@ import java.util.stream.Collectors;
 
 public class ReverseWords {
     public static String reverseWords(String string) {
-        return Arrays.stream(string.split(" ")).map(str -> new StringBuilder(str).reverse().toString()).collect(Collectors.joining(" "));
+        if (string.matches("[^a-zA-Z0-9]\\s+")) {
+            return string;
+        } else {
+            return Arrays.stream(string.split(" "))
+                    .map(str -> new StringBuilder(str)
+                            .reverse()
+                            .toString())
+                    .collect(Collectors.joining(" "));
+        }
+    }
+
+    public static String reverseWords2(String input) {
+        String[] words = input.split(" ");
+        StringBuilder reversed = new StringBuilder();
+
+        for (String word : words) {
+            StringBuilder reversedWord = new StringBuilder(word);
+            reversedWord.reverse();
+            reversed.append(reversedWord).append(" ");
+        }
+        return reversed.toString().trim();
     }
 }
