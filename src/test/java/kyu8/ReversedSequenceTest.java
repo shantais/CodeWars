@@ -8,4 +8,9 @@ class ReversedSequenceTest {
     public void simpleTest() {
         assertArrayEquals(new int[]{5,4,3,2,1},ReversedSequence.reverse(5));
     }
+
+    @Test
+    public void simpleTest2() {
+        assertArrayEquals(new int[]{5,4,3,2,1},ReversedSequence.reverse2(5));
+    }
 }

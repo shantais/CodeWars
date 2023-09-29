@@ -1,7 +1,6 @@
 package kyu8;
 
-import java.sql.Array;
-import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * Build a function that returns an array of integers from n to 1 where n>0.
@@ -15,5 +14,9 @@ public class ReversedSequence {
             arr[n-i] = i;
         }
         return arr;
+    }
+
+    public static int[] reverse2(int n){
+        return IntStream.iterate(n, i->i-1).limit(n).toArray();
     }
 }
