@@ -20,7 +20,7 @@ class ReverseWordsTest {
         assertAll(
                 () -> assertEquals("elbuod  decaps  sdrow", ReverseWords.reverseWords("double  spaced  words")),
                 () -> assertEquals("elbuod   decaps   sdrow", ReverseWords.reverseWords("double   spaced   words")),
-                () -> assertEquals("elbuod  decaps    sdrow", ReverseWords.reverseWords("double  spaced     words"))
+                () -> assertEquals("elbuod  decaps     sdrow", ReverseWords.reverseWords("double  spaced     words"))
         );
 
     }

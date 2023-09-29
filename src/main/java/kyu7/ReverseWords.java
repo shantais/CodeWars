@@ -13,6 +13,6 @@ import java.util.stream.Collectors;
 
 public class ReverseWords {
     public static String reverseWords(String string) {
-        return Arrays.stream(string.split(" +")).map(str -> new StringBuilder(str).reverse().toString()).collect(Collectors.joining(" "));
+        return Arrays.stream(string.split(" ")).map(str -> new StringBuilder(str).reverse().toString()).collect(Collectors.joining(" "));
     }
 }
