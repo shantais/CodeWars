@@ -40,6 +40,18 @@ package kyu6;
 
 public class GoodVsEvil {
     public static String battle(String goodAmounts, String evilAmounts) {
-        return "";
+        int goodValue = forceValue(goodAmounts.split(" "), new int [] {1, 2, 3, 3, 4, 10});
+        int evilValue = forceValue(evilAmounts.split(" "), new int [] {1, 2, 2, 2, 3, 5, 10});
+        if (goodValue>evilValue) return "Battle Result: Good triumphs over Evil";
+        else if (goodValue<evilValue) return "Battle Result: Evil eradicates all trace of Good";
+        else return "Battle Result: No victor on this battle field";
+    }
+
+    public static int forceValue (String [] amounts, int [] worth){
+        int value = 0;
+        for (int i=0; i < worth.length; i++){
+            value += Integer.parseInt(amounts[i])*worth[i];
+        }
+        return value;
     }
 }
