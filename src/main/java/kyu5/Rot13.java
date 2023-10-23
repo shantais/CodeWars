@@ -1,5 +1,9 @@
 package kyu5;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * How can you tell an extrovert from an introvert at NSA?
  * Va gur ryringbef, gur rkgebireg ybbxf ng gur BGURE thl'f fubrf.
@@ -13,6 +17,14 @@ package kyu5;
 
 public class Rot13 {
     public static String rot13(String message) {
-        return "";
+        StringBuilder decodedMessage = new StringBuilder();
+        for (int letterId: message.toCharArray()){
+            if ((letterId >= 65 && letterId <= 77) || (letterId >= 97 && letterId <= 109))
+                letterId += 13;
+            else if ((letterId >= 78 && letterId <= 90) || (letterId >= 110 && letterId <= 122))
+                letterId -= 13;
+            decodedMessage.append((char) letterId);
+        }
+        return decodedMessage.toString();
     }
 }
