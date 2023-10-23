@@ -25,6 +25,7 @@ public class Rot13 {
                 letterId -= 13;
             decodedMessage.append((char) letterId);
         }
+        System.out.println(decodedMessage.toString());
         return decodedMessage.toString();
     }
 }

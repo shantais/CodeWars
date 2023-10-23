@@ -45,4 +45,11 @@ class Rot13Test {
     void testSomething5() {
         Assertions.assertEquals("J3 ne3 va lr@e 2023$$$!äöü", Rot13.rot13("W3 ar3 in ye@r 2023$$$!äöü"), "For input: `W3 ar3 in ye@r 2023$$$!äöü`");
     }
+
+    @Test
+    @Order(6)
+    @DisplayName("Joke punchline")
+    void testPunchline(){
+        Assertions.assertEquals("In the elevators, the extrovert looks at the OTHER guy's shoes", Rot13.rot13("Va gur ryringbef, gur rkgebireg ybbxf ng gur BGURE thl'f fubrf"));
+    }
 }
