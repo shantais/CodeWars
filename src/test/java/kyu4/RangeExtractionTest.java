@@ -15,8 +15,23 @@ class RangeExtractionTest {
     }
 
     @Test
-    public void sequenceAndSingleNumberTest() {
+    public void sequenceAndSingleNumberTest1() {
         assertEquals("1-6,10", RangeExtraction.rangeExtraction(new int[] {1,2,3,4,5,6,10}));
+    }
+
+    @Test
+    public void sequenceAndTwoNumbersTest() {
+        assertEquals("-10,1-6,10", RangeExtraction.rangeExtraction(new int[] {-10,1,2,3,4,5,6,10}));
+    }
+
+    @Test
+    public void sequenceAndTwoSequentialNumbersTest1() {
+        assertEquals("-3,-2,1-6", RangeExtraction.rangeExtraction(new int[] {-3,-2,1,2,3,4,5,6}));
+    }
+
+    @Test
+    public void sequenceAndTwoSequentialNumbersTest2() {
+        assertEquals("1-6,10,11", RangeExtraction.rangeExtraction(new int[] {1,2,3,4,5,6,10,11}));
     }
 
     @Test
