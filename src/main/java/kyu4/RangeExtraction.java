@@ -1,5 +1,10 @@
 package kyu4;
 
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
 /**
  * A format for expressing an ordered list of integers is to use a comma separated list of either
  *     individual integers
@@ -15,6 +20,26 @@ package kyu4;
 
 public class RangeExtraction {
     public static String rangeExtraction(int[] arr) {
-        return "";
+        StringBuilder extractedRanges = new StringBuilder();
+        Set<Integer> subArr = new HashSet<>();
+        for (int i=0; i<arr.length-2; i++){
+            subArr.add(arr[i]);
+            if (arr[i] == arr[i+2]-2){
+                subArr.add(arr[i+2]);
+            } else {
+                appendSequence(extractedRanges, subArr);
+                extractedRanges.append(",");
+                subArr.clear();
+                i+=2;
+                subArr.add(arr[i]);
+            }
+            System.out.println(subArr);
+        }
+        appendSequence(extractedRanges, subArr);
+        return extractedRanges.toString();
+    }
+
+    public static StringBuilder appendSequence(StringBuilder extractedRanges,Set<Integer> subArr){
+        return extractedRanges.append(subArr.stream().min(Integer::compare).get()).append("-").append(subArr.stream().max(Integer::compare).get());
     }
 }
