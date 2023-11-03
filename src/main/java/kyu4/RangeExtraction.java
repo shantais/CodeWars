@@ -1,8 +1,6 @@
 package kyu4;
 
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -39,7 +37,7 @@ public class RangeExtraction {
         return extractedRanges.toString();
     }
 
-    public static StringBuilder appendSequence(StringBuilder extractedRanges,Set<Integer> subArr){
-        return extractedRanges.append(subArr.stream().min(Integer::compare).get()).append("-").append(subArr.stream().max(Integer::compare).get());
+    public static void appendSequence(StringBuilder extractedRanges, Set<Integer> subArr){
+        extractedRanges.append(subArr.stream().min(Integer::compare).get()).append("-").append(subArr.stream().max(Integer::compare).get());
     }
 }
