@@ -38,6 +38,10 @@ public class RangeExtraction {
     }
 
     public static void appendSequence(StringBuilder extractedRanges, Set<Integer> subArr){
-        extractedRanges.append(subArr.stream().min(Integer::compare).get()).append("-").append(subArr.stream().max(Integer::compare).get());
+        if (subArr.size() > 2) {
+            extractedRanges.append(subArr.stream().min(Integer::compare).get()).append("-").append(subArr.stream().max(Integer::compare).get());
+        } else {
+            extractedRanges.append(subArr.toArray()[0]);
+        }
     }
 }
