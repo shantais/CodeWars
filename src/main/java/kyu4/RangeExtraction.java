@@ -18,22 +18,37 @@ import java.util.Set;
 
 public class RangeExtraction {
     public static String rangeExtraction(int[] arr) {
+        return "";
+    }
+    public static String rangeExtractionIf(int[] arr) {
         StringBuilder extractedRanges = new StringBuilder();
         Set<Integer> subArr = new HashSet<>();
         for (int i=0; i<arr.length-2; i++){
             subArr.add(arr[i]);
-            if (arr[i] == arr[i+2]-2){
-                subArr.add(arr[i+2]);
+            System.out.println(arr[i] + ", " + subArr.toString());
+            if (arr[i] == arr[i + 2] - 2) {
+                subArr.add(arr[i + 2]);
+            } else if (subArr.size() > 2) {
+                appendSequence(extractedRanges, subArr);
+                extractedRanges.append(",");
+                subArr.clear();
+                i += 2;
+                subArr.add(arr[i]);
             } else {
                 appendSequence(extractedRanges, subArr);
                 extractedRanges.append(",");
                 subArr.clear();
-                i+=2;
-                subArr.add(arr[i]);
+            }
+            if (i==arr.length-2){
+                appendSequence(extractedRanges, subArr);
+                extractedRanges.append(",");
+                subArr.clear();
+                subArr.add(arr[i + 1]);
             }
             System.out.println(subArr);
         }
         appendSequence(extractedRanges, subArr);
+        System.out.println(extractedRanges);
         return extractedRanges.toString();
     }
 
