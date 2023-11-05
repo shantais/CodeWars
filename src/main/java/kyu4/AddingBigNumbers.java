@@ -1,7 +1,6 @@
 package kyu4;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 /**
  * We need to sum big numbers, and we require your help.
