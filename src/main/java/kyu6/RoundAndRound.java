@@ -9,6 +9,6 @@ package kyu6;
 
 public class RoundAndRound {
     public static double roundTo2DecimalPlaces(double number) {
-        return Math.round(number * 100.0/100.0);
+        return Double.parseDouble(String.format("%.2f", number));
     }
 }
